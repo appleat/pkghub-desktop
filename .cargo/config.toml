@@ -1,0 +1,10 @@
+# 国内网络环境下 crates.io 直连不稳定，这里使用 rsproxy 稀疏镜像。
+# 如果不需要，可以删除本文件（或在境外网络下删除）。
+[source.crates-io]
+replace-with = "rsproxy-sparse"
+
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[net]
+retry = 3

@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+dist/
+src-tauri/target/
+
+# 本地数据与临时文件
+demo_packages/
+*.db
+*.db-wal
+*.db-shm
+*.log
+.DS_Store
+.shots/
+
+# 工作区元数据
+.workbuddy/

@@ -1,0 +1,31 @@
+[package]
+name = "pkghub"
+version = "1.0.0"
+description = "PkgHub - 本地安装包管理器"
+authors = ["PkgHub"]
+edition = "2021"
+rust-version = "1.77"
+
+[lib]
+name = "pkghub_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "=2.6.2", features = [] }
+
+[dependencies]
+# 2.11.x 是最后一个支持 rustc 1.89 的版本线
+tauri = { version = "=2.11.2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rusqlite = { version = "0.32", features = ["bundled"] }
+walkdir = "2"
+regex = "1"
+chrono = "0.4"
+
+[profile.release]
+panic = "abort"
+codegen-units = 1
+lto = true
+opt-level = "s"
+strip = true
